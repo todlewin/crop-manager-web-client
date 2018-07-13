@@ -10,6 +10,7 @@ export class PlantListComponent implements OnInit {
   imageWidth: number = 50;
   imageMargin: number = 2;
   showImage: boolean = false;
+  listFilter: string = "";
 
   plants: Array<any> = [
     {
