@@ -15,6 +15,7 @@ import { TableHeaderRowComponent } from './table-header-row/table-header-row.com
 import { TableHeaderCellComponent } from './table-header-cell/table-header-cell.component';
 import { TableFooterCellComponent } from './table-footer-cell/table-footer-cell.component';
 import { TableFooterRowComponent } from './table-footer-row/table-footer-row.component';
+import { PlantListComponent } from './plant-list/plant-list.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { TableFooterRowComponent } from './table-footer-row/table-footer-row.com
     TableHeaderRowComponent,
     TableHeaderCellComponent,
     TableFooterCellComponent,
-    TableFooterRowComponent
+    TableFooterRowComponent,
+    PlantListComponent
   ],
   imports: [
     BrowserModule
