@@ -33,19 +33,20 @@
           </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let plant of plants">
+        <tr *ngFor="let plant of filteredPlants">
           <td>
             <img *ngIf="showImage"
-                 [src]="plant.ImageURL"
-                 [title]="plant.Name"
+                 [src]="plant.imageURL"
+                 [title]="plant.name | uppercase"
                  [style.width.px]="imageWidth"
                  [style.margin.px]="imageMargin" />
           </td>
-          <td>{{plant.Name}}</td>
-          <td>{{plant.Code}}</td>
-          <td>{{plant.Description}}</td>
-          <td>{{plant.Sow}}</td>
-          <td>{{plant.Depth}}</td>
+          <td>{{plant.name | uppercase }}</td>
+          <td>{{plant.code | uppercase | convertToSpaces : "-"}}</td>
+          <td>{{plant.description}}</td>
+          <td>{{plant.sow}}</td>
+          <td><app-depth-indicator [depth]="plant.depth"
+                                   (depthClicked)="onDepthClicked($event)"></app-depth-indicator></td>
         </tr>
         </tbody>
       </table>
