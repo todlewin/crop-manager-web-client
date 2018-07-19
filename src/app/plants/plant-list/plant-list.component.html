@@ -41,7 +41,11 @@
                  [style.width.px]="imageWidth"
                  [style.margin.px]="imageMargin" />
           </td>
-          <td>{{plant.name | uppercase }}</td>
+          <td>
+            <a [routerLink]="['/plants', plant.code]">
+              {{plant.name | uppercase }}
+            </a>
+          </td>
           <td>{{plant.code | uppercase | convertToSpaces : "-"}}</td>
           <td>{{plant.description}}</td>
           <td>{{plant.sow}}</td>

@@ -1,7 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { RouterModule } from "@angular/router";
 
 import { AppComponent } from "./app.component";
 import { TableComponent } from "./table/table.component";
@@ -17,9 +17,9 @@ import { TableHeaderRowComponent } from "./table-header-row/table-header-row.com
 import { TableHeaderCellComponent } from "./table-header-cell/table-header-cell.component";
 import { TableFooterCellComponent } from "./table-footer-cell/table-footer-cell.component";
 import { TableFooterRowComponent } from "./table-footer-row/table-footer-row.component";
-import { PlantListComponent } from "./plant-list/plant-list.component";
-import { ConvertToSpacesPipe } from "./custom-pipes/convert-to-spaces-pipe";
-import { DepthIndicatorComponent } from './depth-indicator/depth-indicator.component';
+import { WelcomeComponent } from "./welcome/welcome.component";
+import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
+import { PlantModule } from "./plants/plant.module";
 
 @NgModule({
   declarations: [
@@ -37,14 +37,20 @@ import { DepthIndicatorComponent } from './depth-indicator/depth-indicator.compo
     TableHeaderCellComponent,
     TableFooterCellComponent,
     TableFooterRowComponent,
-    PlantListComponent,
-    ConvertToSpacesPipe,
-    DepthIndicatorComponent
+    WelcomeComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([{ path: "welcome",
+        component: WelcomeComponent},
+      { path: "",
+        redirectTo: "welcome",
+        pathMatch: "full"},
+      { path: "**",
+        component: PageNotFoundComponent}]),
+    PlantModule
   ],
   providers: [],
   bootstrap: [AppComponent]
